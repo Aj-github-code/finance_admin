@@ -1,0 +1,20 @@
+
+<IfModule mod_rewrite.c>
+	Options +FollowSymlinks
+	RewriteEngine On
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule ^(.*)$ index.php?/$1 [L]
+
+	SetEnv DEFAULT_DB_HOST localhost
+	SetEnv DEFAULT_DB_USER root
+	SetEnv DEFAULT_DB_PASSWORD Admin@123
+	SetEnv DEFAULT_DB_NAME my_heaven
+
+	SetEnv DEFAULT_SESSION_KEY 					Y1lCRVJOWFNFQ1VSSVRZ
+	SetEnv DEFAULT_SESSION_NAME 				my_heaven_admin_session
+	SetEnv PUBLICDOMAIN 						localhost
+</IfModule>
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+</IfModule>
